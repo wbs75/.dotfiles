@@ -1,5 +1,3 @@
-# Load ~/.bash_prompt, ~/.exports, ~/.aliases, ~/.functions and ~/.extra
-# ~/.extra can be used for settings you don’t want to commit
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
@@ -43,8 +41,8 @@ complete -W "NSGlobalDomain" defaults
 
 export EDITOR='subl -w'
 
-export PATH="/usr/local/bin:/usr/local/share/python3:/usr/local/share/npm/bin:/usr/local/sbin:~/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
-source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+# UN-Comment after brew install
+# source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
