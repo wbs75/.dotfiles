@@ -1,0 +1,384 @@
+#!/bin/bash
+
+# ~/.osx — https://github.com/wbs75/dotfiles/edit/master/.osx
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+###############################################################################
+# General UI/UX                                                               #
+###############################################################################
+
+# Set computer name (as done via System Preferences → Sharing)
+sudo scutil --set ComputerName "Macintosh HD"
+sudo scutil --set HostName "Macintosh HD"
+sudo scutil --set LocalHostName "OS X Server"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "OS X Server"
+
+# ///////////////// Dock ////////////////////////
+# Enable2Ddock
+sudo defaults write com.apple.dock no-glass -bool 
+
+# Where on the side of the screen the Dock resides.
+sudo defaults write com.apple.dock pinning -string "middle"
+
+# Defines the animation which is used to show windows being minimized into the Dock.
+sudo defaults write com.apple.dock mineffect -string "suck"
+
+# Make Dock icons of hidden applications translucent
+sudo defaults write com.apple.dock showhidden -bool true
+
+# Make list view stacks work like grid view stacks.
+sudo defaults write com.apple.dock use-new-list-stack -bool true
+
+# Enable highlight hover effect for the grid view of a stack (Dock)
+sudo defaults write com.apple.dock mouse-over-hilte-stack -bool true
+
+# Program alerts will not be sent to the Dock causing it to bounce. Example: receiving an instant message when the application is in the background.
+sudo defaults write com.apple.dock no-bouncing -bool true
+
+# Show indicator lights for open applications in the Dock
+sudo defaults write com.apple.dock show-process-indicators -bool true
+
+# Don’t animate opening applications from the Dock
+sudo defaults write com.apple.dock launchanim -bool false
+
+# ///////////////// MenuBar ////////////////////////
+# Disable menu bar transparency
+sudo defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+# Show remaining battery time; hide percentage
+sudo defaults write com.apple.menuextra.battery ShowPercent -string "NO"
+sudo defaults write com.apple.menuextra.battery ShowTime -string "YES"
+
+# ///////////////// Finder ////////////////////////
+# Windows which were open prior to logging out are re-opened after logging in.
+sudo defaults write com.apple.finder RestoreWindowState -bool true
+
+# Allow Rubberband scrolling
+sudo defaults write NSGlobalDomain NSScrollViewRubberbanding -bool true
+
+# The location and style of scrollbar arrows. Applications often need to be relaunched to see the change.
+sudo defaults write NSGlobalDomain AppleScrollBarVariant -string "DoubleBoth"
+
+# Smooth Scroll
+sudo defaults write NSGlobalDomain NSScrollAnimationEnabled -bool true
+
+# Reveals hidden files that begin with a period or are flagged specially as hidden.
+sudo defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Prefered View Style
+sudo defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+# Adds the ability to highlight and select text from QuickLook previews.
+sudo defaults write com.apple.finder QLEnableTextSelection -bool true
+
+# Disable window animations
+sudo defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+# Disable Resume system-wide
+sudo defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+# Always show scrollbars
+sudo defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
+sudo defaults write com.apple.finder QuitMenuItem -bool true
+
+# Show all filename extensions in Finder
+sudo defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Expand save panel by default
+sudo defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+# Automatically open a new Finder window when a volume is mounted
+sudo defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+sudo defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+
+# Display full POSIX path as Finder window title
+sudo defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Increase window resize speed for Cocoa applications
+sudo defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# ///////////////// Remote ////////////////////////
+# Admin Console Allows Remote Control
+sudo defaults delete /Library/Preferences/com.apple.RemoteManagement AdminConsoleAllowsRemoteControl
+
+# Prevents system keys like command-tab from being sent
+sudo defaults write com.apple.RemoteDesktop DoNotSendSystemKeys -bool true
+
+# Show the Debug menu Remote Desktop
+sudo defaults write com.apple.remotedesktop IncludeDebugMenu -bool true
+
+# Define user name display behavior.
+sudo defaults write com.apple.remotedesktop showShortUserName -bool true
+
+# Prevent protection when attempting to remotely control this computer.
+sudo defaults write com.apple.ScreenSharing skipLocalAddressCheck -bool true
+
+# Disables system-level key combos like command-option-esc (Force Quit), command-tab (App switcher) to be used on the remote machine.
+sudo defaults write com.apple.ScreenSharing DoNotSendSystemKeys -bool true
+
+# ///////////////// System Preferences////////////////////////
+# Warning: This feature may be unstable. Requires a restart. Enables Quartz 2D extreme functionality, which uses the graphics card to render graphics and text.
+sudo defaults write /Library/Preferences/com.apple.windowserver Quartz2DExtremeEnabled -bool true
+
+# Prevent Dashboard from loading
+sudo defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Disable Mission Control
+sudo defaults write com.apple.Dock mcx-expose-disabled -bool true
+
+# Disable Secure Virtual Memory
+sudo defaults write /Library/Preferences/com.apple.virtualMemory DisableEncryptedSwap -bool true
+
+# isables the 'downloaded from the internet' warning for any new files downloaded.
+sudo defaults delete com.apple.LaunchServices LSQuarantine
+
+# Prevent Time Machine from asking about backing up newly connected disks.
+sudo defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Enable, by default, Automatic Dash Substitution which corrects the type of dashes used as you type.
+sudo defaults write NSGlobalDomain WebAutomaticDashSubstitutionEnabled -bool true
+
+# To turn rounded corners off for all windows, amongst other things. Apps must be restarted. Potentially dangerous.
+sudo defaults write NSGlobalDomain AppleUseCoreUI -bool true
+
+# Allows basic scripting for Preview.
+sudo defaults write com.apple.preview NSAppleScriptEnabled -bool true
+
+# Will check spelling as you type by default, unless the application specifies otherwise.
+sudo defaults write NSGlobalDomain CheckSpellingWhileTyping -bool true
+
+# Enable subpixel font rendering on non-Apple LCDs
+sudo defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+# Expand print panel by default
+sudo defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+sudo defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Disable shadow in screenshots
+sudo defaults write com.apple.screencapture disable-shadow -bool true
+
+# The format in which screen captures are taken using hot keys (ie. Command-Shift-3, Command-Shift-4, etc.).
+sudo defaults write com.apple.screencapture type -string "jpg"
+
+killall SystemUIServer
+
+# Disable the warning before emptying the Trash
+sudo defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Require password immediately after sleep or screen saver begins
+sudo defaults write com.apple.screensaver askForPassword -int 1
+sudo defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Enable AirDrop over Ethernet and on unsupported Macs running Lion
+sudo defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
+# Avoid creating .DS_Store files on network volumes
+sudo defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Disable the warning when changing a file extension
+sudo defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Change the level of interaction available when applications crash.
+sudo defaults write com.apple.CrashReporter DialogType -string "developer"
+
+# Disable Automatic Termination
+sudo defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Cause Quick Look to print log messages showing its activity, such as which generators it loads and which documents it requests previews and thumbnails for.
+sudo defaults write NSGlobalDomain QLEnableLogging -bool true
+
+# Shows file extensions in open and save dialogs.
+sudo defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show Expired Certificates
+sudo defaults write com.apple.keychainaccess Show\ Expired\ Certificates -bool true
+
+# Makes Keychain Access display *unsigned* ACL entries in italics.
+sudo defaults write com.apple.keychainaccess Distinguish\ Legacy\ ACLs -bool true
+
+# //////////////// Keyboard & Trackpad  ////////////////////////
+# Disable press-and-hold for keys in favor of key repeat
+sudo defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+sudo defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Set a blazingly fast keyboard repeat rate
+sudo defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Disable auto-correct
+sudo defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Enable tap to click (Trackpad)
+sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+# Map bottom right Trackpad corner to right-click
+sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+
+# ////////////////// Diskutil /////////////////////////////
+# Show a Debug menu in Disk Utility.
+sudo defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+
+# Enables additional disk image options.
+sudo defaults write com.apple.DiskUtility advanced-image-options -bool true
+
+# Shows all partitions for a disk in the main list.
+sudo defaults write com.apple.DiskUtility DUShowEveryPartition -bool true
+
+# Skip checksum verification for images on remote volumes.
+sudo defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# Skip checksum verification for images on locked voumes
+sudo defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+
+# Allows Disk Images As RAIDs
+sudo defaults write com.apple.DiskUtility DUAllowsDiskImagesAsRAIDs -bool true
+
+# Disk Skip Verify
+sudo defaults write com.apple.DiskUtility DURestoreCanSkipVerify -bool true
+
+# Debug All Message Level
+sudo defaults write com.apple.DiskUtility DUDebugMessageLevel -int 4
+
+# Show Details In First Aid 
+sudo defaults write com.apple.DiskUtility DUShowDetailsInFirstAid -bool true
+
+# Disable disk image verification
+sudo defaults write com.apple.frameworks.diskimages skip-verify -bool true
+sudo defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+sudo defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+# Automatically open a Finder window for read-only disk images.
+sudo defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+
+# Automatically open a Finder window for read-write disk images.
+sudo defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+
+# ///////////////// TerminAL ////////////////////////////
+# Only use UTF-8 in Terminal.app
+sudo defaults write com.apple.terminal StringEncodings -array 4
+
+# Focus Follows Mouse
+sudo defaults write com.apple.terminal FocusFollowsMouse -bool true
+
+# ////////////////// Safari //////////////////////////////
+# Requires Safari 5.0.1 or later. Feature that is intended to increase the speed at which pages load. DNS (Domain Name System) prefetching kicks in when you load a webpage that contains links to other pages. As soon as the initial page is loaded, Safari 5.0.1 (or later) begins resolving the listed links’ domain names to their IP addresses. Prefetching can occasionally result in “slow performance, partially-loaded pages, or webpage ‘cannot be found’ messages.”
+sudo defaults write com.apple.safari WebKitDNSPrefetchingEnabled -bool true
+
+# Disable  Data Dectors
+sudo defaults write com.apple.Safari WebKitUsesEncodingDetector -bool false
+
+# Disable Safari’s thumbnail cache for History and Top Sites
+sudo defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
+
+# Google Suggestion
+sudo defaults write com.apple.safari DebugSafari4IncludeGoogleSuggest -bool true
+
+# Automatically spell check web forms.
+sudo defaults write com.apple.safari WebContinuousSpellCheckingEnabled -bool true
+
+# Automatically grammar check web forms.
+sudo defaults write com.apple.safari WebGrammarCheckingEnabled -bool true
+
+# Enable Safari’s debug menu
+sudo defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# Include page background colors and images when printing.
+sudo defaults write com.apple.safari WebKitShouldPrintBackgroundsPreferenceKey -bool true
+
+# Remove useless icons from Safari’s bookmarks bar
+sudo defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+# Remove useless icons from Safari’s bookmarks bar
+sudo defaults write com.apple.Safari ProxiesInBookmarksBar "()"
+
+# Hitting the backspace key on the keyboard will have the same effect as clicking the "Back" button in Safari.
+sudo defaults write com.apple.safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+
+# ///////////////// iTunes /////////////////////////////
+# Disable the Ping sidebar in iTunes
+sudo defaults write com.apple.iTunes disablePingSidebar -bool true
+
+# Disable all the other Ping stuff in iTunes
+sudo defaults write com.apple.iTunes disablePing -bool true
+
+# Hides the dropdown Ping menu that appears next to songs.
+sudo defaults write com.apple.iTunes hide-ping-dropdown -bool true
+
+# Disable the Genius sidebar
+sudo defaults write com.apple.itunes disableGeniusSidebar -bool true
+
+# ///////////////// Quicktime  /////////////////////////////
+# Allow Multiple Simultaneous Recordings 
+sudo defaults write com.apple.QuickTimePlayerX MGAllowMultipleSimultaneousRecordings -bool true
+
+# Always Show TitleBar Controller
+sudo defaults write com.apple.QuickTimePlayerX MGUIVisibilityNeverAutohide -bool true
+
+# No Rounded Corners 
+sudo defaults write com.apple.QuickTimePlayerX MGCinematicWindowDebugForceNoRoundedCorners -bool true
+
+# ///////////////// Mail /////////////////////////////
+# Disable send and reply animations in Mail.app
+sudo defaults write com.apple.Mail DisableReplyAnimations -bool true
+sudo defaults write com.apple.Mail DisableSendAnimations -bool true
+
+# ///////////////// iMessage /////////////////////////////
+# Automatically go away after the specified time period.
+sudo defaults write com.apple.ichat AutoAway -bool true
+
+# Disable iChat Data Detectors which help locate e-mails, dates, and other data tidbits.
+sudo defaults write com.apple.ichat EnableDataDetectors -bool false
+
+# ///////////////// Parallels  /////////////////////////////
+# Disable Advertisment
+sudo defaults write com.parallels.Parallels\ Desktop ProductPromo.ForcePromoOff -bool true
+
+###########################
+# Misc                    #
+###########################
+
+# / Reset Launchpad 
+[ -e ~/Library/Application\ Support/Dock/*.db ] && rm ~/Library/Application\ Support/Dock/*.db
+
+#  Show the ~/Library folder 
+chflags nohidden ~/Library
+
+# ///////// Disable local Time Machine backups
+hash tmutil &> /dev/null && sudo tmutil disablelocal
+
+# Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
+# Commented out, as this is known to cause problems when saving files in Adobe Illustrator CS5 :(
+echo "0x08000100:0" > ~/.CFUserTextEncoding
+
+
+###############################################################################
+# Kill affected applications or restart the system                            #
+###############################################################################
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
+echo "To restart the system press [r] or to kill affected apps press [k]"
+
+read option
+
+if [ $option == "r" ]; then
+    sudo shutdown -r now
+elif [ $option == "k" ]; then
+    for app in "Address Book" "Contacts" "iCal" "Calendar" "Dock" "Finder" "Mail" \
+        "Safari" "iTunes" "SystemUIServer" "Terminal" "Twitter"; do
+        killall "$app" > /dev/null 2>&1
+    done
+fi
+
+
+
