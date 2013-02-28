@@ -60,10 +60,10 @@ brew install brew-pkg
 cd
 
 gem install rubygems-update 
-gem install gtk2 -v 1.1.9
 gem install bundler
+update_rubygems 
 gem update --system
 bundle install --system 
-update_rubygems 
+
 exit
 #
