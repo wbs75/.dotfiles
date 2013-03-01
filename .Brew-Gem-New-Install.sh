@@ -12,11 +12,9 @@ ls -l bin
 
 cd $HOME
 
-####'YOUR NAME
-git config --global user.name "-------"
-
-#### YOUR EMAIL
-source ~/.bash_profile "-------" 
+git config --global user.name W. SMITH  
+git config --global user.email wbs75@me.com  
+source ~/.bash_profile    
 
 brew tap homebrew/dupes    
 
@@ -73,8 +71,9 @@ ln -s ~/.rvm/* /usr/local/rvm
 type rvm | head -1    
 rvm get head    
 rvm -v    
-exit 
+echo "Finish Install (Reboot in 1 minute)" 
 
-echo "Finish Installing,"
+sudo -v
 
+sudo shutdown -r +1
 
