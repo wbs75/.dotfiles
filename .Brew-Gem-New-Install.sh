@@ -12,8 +12,8 @@ ls -l bin
 
 cd $HOME
 
-git config --global user.name W. SMITH  
-git config --global user.email wbs75@me.com  
+git config --global user.name "Your Name"
+git config --global user.email "Your Email" 
 source ~/.bash_profile    
 
 brew tap homebrew/dupes    
@@ -36,7 +36,6 @@ brew install mercurial
 brew install multimarkdown  
 brew install node  
 brew install python  
-brew install readline
 
 brew tap timsutton/formulae
 brew install brew-pkg
