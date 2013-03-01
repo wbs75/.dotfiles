@@ -1,69 +1,72 @@
-#!/bin/bash
+#!/bin/bash    
 
-# 'Brew-Gem-New-Install' v03012013 #### 
-#
-# Simple Bash script i run on my workstation when installing clean OS.
-# 
-# To figure out what version of packages may or may not work or be needed:  
-# Look at # above "v03012013" which is date when i last tested and ran script.  
-# If you have issue you may need to make adjustments.
-# Terminal should give you explantation if you recieve error.
-#
-# Prerequisites:
-# 01) Install Xcode, Command Line Tools, Install XQuartz:
-# 02) Add Gemfile to $HOME
+ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"     
 
-# **** Add or Remove any packages you may or may not need ****
+sudo chown -R `whoami` /usr/local    
 
-sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
-ln -s /opt/X11 /usr/X11    
-sudo chown -R `whoami` /usr/local
+brew install git    
 
-ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" 
+cd /usr/local  
+find Cellar  
+ls -l bin  
+cd    
 
-brew install git
+git config --global user.name W. SMITH  
+git config --global user.email wbs75@me.com  
+source ~/.bash_profile    
 
-cd /usr/local
-find Cellar
-ls -l bin
-cd
+brew tap homebrew/dupes    
 
-git config --global user.name W. SMITH
-git config --global user.email wbs75@me.com
-source ~/.bash_profile
-
-brew tap homebrew/dupes
-
-brew install apple-gcc42
-brew install atk
-brew install autoconf
-brew install automake
-brew install bash
-brew install cairo
-brew install fontconfig
-brew install gdbm
-brew install gdk-pixbuf
-brew install gtk+
-brew install libgpg-error
-brew install libksba
-brew install libyaml
-brew install markdown
-brew install mercurial
-brew install multimarkdown
-brew install node
-brew install python
-brew install ruby
+brew install apple-gcc42  
+brew install atk  
+brew install autoconf  
+brew install automake  
+brew install bash  
+brew install cairo  
+brew install fontconfig  
+brew install gdbm  
+brew install gdk-pixbuf  
+brew install gtk+  
+brew install libgpg-error  
+brew install libksba  
+brew install libyaml  
+brew install markdown  
+brew install mercurial  
+brew install multimarkdown  
+brew install node  
+brew install python  
+brew install readline
 
 brew tap timsutton/formulae
 brew install brew-pkg
 
 cd
 
-gem install rubygems-update 
-gem install bundler
-update_rubygems 
-gem update --system
-bundle install --system 
-
-exit
+curl -L https://get.rvm.io | bash -s stable --ruby  
+source ~/.rvm/scripts/rvm
+type rvm | head -1  
+echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM functi$ on' >> ~/.bash_profile    
+source /Users/wbs/.rvm/scripts/rvm
+source ~/.bash_profile    
+rvm pkg install openssl    
+rvm reinstall 1.9.3 --with-readline-dir=/usr/local/Cellar/readline/6.2.4    
+cd /usr/local/bin    
+ln -s gcc-4.2 /usr/bin/gcc-4.2  
+cd
+source /Users/wbs/.rvm/scripts/rvm  
+source ~/.bash_profile   
+rvm use 1.9.3 --default    
+ruby -v 
 #
+
+gem install rubygems-update 
+update_rubygems    
+gem update --system    
+bundle install --system    
+mkdir /usr/local/rvm     
+ln -s ~/.rvm/* /usr/local/rvm    
+type rvm | head -1    
+rvm get head    
+rvm -v    
+exit 
+
