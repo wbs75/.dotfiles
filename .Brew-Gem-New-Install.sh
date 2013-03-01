@@ -68,5 +68,9 @@ ln -s ~/.rvm/* /usr/local/rvm
 type rvm | head -1    
 rvm get head    
 rvm -v    
-exit 
+echo "Finish Install (Reboot in 1 minute)" 
+
+sudo -v
+
+sudo shutdown -r +1
 
