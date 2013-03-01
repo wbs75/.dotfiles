@@ -9,11 +9,14 @@ brew install git
 cd /usr/local  
 find Cellar  
 ls -l bin  
-cd    
 
-git config --global user.name W. SMITH  
-git config --global user.email wbs75@me.com  
-source ~/.bash_profile    
+cd $HOME
+
+####'YOUR NAME
+git config --global user.name "-------"
+
+#### YOUR EMAIL
+source ~/.bash_profile "-------" 
 
 brew tap homebrew/dupes    
 
@@ -40,7 +43,7 @@ brew install readline
 brew tap timsutton/formulae
 brew install brew-pkg
 
-cd
+cd $HOME
 
 curl -L https://get.rvm.io | bash -s stable --ruby  
 source ~/.rvm/scripts/rvm
@@ -52,7 +55,9 @@ rvm pkg install openssl
 rvm reinstall 1.9.3 --with-readline-dir=/usr/local/Cellar/readline/6.2.4    
 cd /usr/local/bin    
 ln -s gcc-4.2 /usr/bin/gcc-4.2  
-cd
+
+cd $HOME
+
 source /Users/wbs/.rvm/scripts/rvm  
 source ~/.bash_profile   
 rvm use 1.9.3 --default    
@@ -68,9 +73,8 @@ ln -s ~/.rvm/* /usr/local/rvm
 type rvm | head -1    
 rvm get head    
 rvm -v    
-echo "Finish Install (Reboot in 1 minute)" 
+exit 
 
-sudo -v
+echo "Finish Installing,"
 
-sudo shutdown -r +1
 
