@@ -31,6 +31,8 @@ brew install gtk+
 brew install libgpg-error  
 brew install libksba  
 brew install libyaml  
+brew install libxml2
+brew install libxslt
 brew install markdown  
 brew install mercurial  
 brew install multimarkdown  
