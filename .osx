@@ -17,6 +17,8 @@ sudo scutil --set ComputerName Macintosh HD
 sudo scutil --set HostName Macintosh HD
 sudo scutil --set LocalHostName Macintosh HD
 
+cd $HOME
+
 # ///////////////// Dock ////////////////////////
 # Enable2Ddock
 defaults write com.apple.dock no-glass -bool 
