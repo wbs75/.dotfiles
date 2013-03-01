@@ -13,10 +13,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Macintosh HD"
-sudo scutil --set HostName "Macintosh HD"
-sudo scutil --set LocalHostName "OS X Server"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "OS X Server"
+sudo scutil --set ComputerName Macintosh HD
+sudo scutil --set HostName Macintosh HD
+sudo scutil --set LocalHostName Macintosh HD
 
 # ///////////////// Dock ////////////////////////
 # Enable2Ddock
@@ -45,6 +44,8 @@ sudo defaults write com.apple.dock show-process-indicators -bool true
 
 # Don’t animate opening applications from the Dock
 sudo defaults write com.apple.dock launchanim -bool false
+
+killall Dock
 
 # ///////////////// MenuBar ////////////////////////
 # Disable menu bar transparency
@@ -103,6 +104,8 @@ sudo defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 # Increase window resize speed for Cocoa applications
 sudo defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+killall Finder
 
 # ///////////////// Remote ////////////////////////
 # Admin Console Allows Remote Control
