@@ -68,7 +68,8 @@ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM
 source /Users/wbs/.rvm/scripts/rvm
 source ~/.bash_profile    
 rvm pkg install openssl    
-rvm reinstall all --force  --with-readline-dir=/usr/local/Cellar/readline/6.2.4    
+rvm reinstall 1.9.3 --with-readline-dir=/usr/local/Cellar/readline/6.2.4  
+rvm reinstall 2.0.0 --with-readline-dir=/usr/local/Cellar/readline/6.2.4    
 cd /usr/local/bin    
 ln -s gcc-4.2 /usr/bin/gcc-4.2  
 
