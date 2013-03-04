@@ -23,8 +23,8 @@ cd $HOME
            
 echo "source `brew --prefix`/Library/Contributions/brew_bash_completion.sh " >> ~/.bash_profile 
 
-git config --global user.name "W Smith"
-git config --global user.email "wbs75@me.coml" 
+git config --global user.name "Your Name"
+git config --global user.email "Your Email" 
 source ~/.bash_profile    
 
 brew tap homebrew/dupes    
