@@ -2,11 +2,11 @@
 
 sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer  
 
-ln -s /opt/X11 /usr/X11 
-
-ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"     
+sudo ln -s /opt/X11 /usr/X11  
 
 sudo chown -R `whoami` /usr/local    
+
+ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"    
 
 brew install git    
 
@@ -92,6 +92,8 @@ rvm get head
 rvm -v    
 
 brew doctor
+
+echo "Add '/usr/local/Cellar/bash/4.2.42' to '/private/etc/shells'"
 
 echo "Finish Install (Reboot in 1 minute)" 
 
