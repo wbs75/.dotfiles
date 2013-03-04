@@ -1,4 +1,9 @@
-#!/bin/bash    
+#!/bin/bash   
+
+# The following should be install 3 packages need to b einstall before running script:
+# 01) Install Xcode:
+# 02) Install Command Line Tools:
+# 03) Install XQuartz:
 
 sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer  
 
