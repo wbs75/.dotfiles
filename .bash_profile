@@ -40,9 +40,3 @@ complete -W "NSGlobalDomain" defaults
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 export EDITOR='subl -w'
-
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-
-# UN-Comment after brew install
-# source `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-
