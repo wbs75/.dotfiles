@@ -1,5 +1,9 @@
 #!/bin/bash    
 
+sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer  
+
+ln -s /opt/X11 /usr/X11 
+
 ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"     
 
 sudo chown -R `whoami` /usr/local    
@@ -11,6 +15,8 @@ find Cellar
 ls -l bin  
 
 cd $HOME
+           
+echo "source `brew --prefix`/Library/Contributions/brew_bash_completion.sh 
 
 git config --global user.name "Your Name"
 git config --global user.email "Your Email" 
@@ -22,7 +28,8 @@ brew install apple-gcc42
 brew install atk  
 brew install autoconf  
 brew install automake  
-brew install bash  
+brew install bash
+brew install bash-completion
 brew install cairo  
 brew install fontconfig  
 brew install gdbm  
@@ -37,12 +44,22 @@ brew install markdown
 brew install mercurial  
 brew install multimarkdown  
 brew install node  
-brew install python  
+brew install python3  
+
+echo 'export PATH="/usr/local/bin:/usr/local/share/python3:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_profile 
 
 brew tap timsutton/formulae
 brew install brew-pkg
 
 cd $HOME
+
+mkdir -p ~/.zsh/func
+ln -s "$(brew --prefix)/Library/Contributions/brew_zsh_completion.zsh" ~/.zsh/func/_brew
+
+fpath=($HOME/.zsh/func $fpath)
+typeset -U fpath
+
+echo "gem: -n/usr/local/bin" >> ~/.gemrc
 
 curl -L https://get.rvm.io | bash -s stable --ruby  
 source ~/.rvm/scripts/rvm
@@ -51,12 +68,13 @@ echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM
 source /Users/wbs/.rvm/scripts/rvm
 source ~/.bash_profile    
 rvm pkg install openssl    
-rvm reinstall 1.9.3 --with-readline-dir=/usr/local/Cellar/readline/6.2.4    
+rvm reinstall all --force  --with-readline-dir=/usr/local/Cellar/readline/6.2.4    
 cd /usr/local/bin    
 ln -s gcc-4.2 /usr/bin/gcc-4.2  
 
 cd $HOME
 
+echo "export GEM_HOME='$(brew --prefix)'" >> ~/.bashrc
 source /Users/wbs/.rvm/scripts/rvm  
 source ~/.bash_profile   
 rvm use 1.9.3 --default    
@@ -74,7 +92,6 @@ rvm get head
 rvm -v    
 echo "Finish Install (Reboot in 1 minute)" 
 
-sudo -v
 
 sudo shutdown -r +1
 
