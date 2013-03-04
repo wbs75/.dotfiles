@@ -16,10 +16,10 @@ ls -l bin
 
 cd $HOME
            
-echo "source `brew --prefix`/Library/Contributions/brew_bash_completion.sh 
+echo "source `brew --prefix`/Library/Contributions/brew_bash_completion.sh " >> ~/.bash_profile 
 
-git config --global user.name "Your Name"
-git config --global user.email "Your Email" 
+git config --global user.name "W Smith"
+git config --global user.email "wbs75@me.coml" 
 source ~/.bash_profile    
 
 brew tap homebrew/dupes    
@@ -90,8 +90,10 @@ ln -s ~/.rvm/* /usr/local/rvm
 type rvm | head -1    
 rvm get head    
 rvm -v    
-echo "Finish Install (Reboot in 1 minute)" 
 
+brew doctor
+
+echo "Finish Install (Reboot in 1 minute)" 
 
 sudo shutdown -r +1
 
