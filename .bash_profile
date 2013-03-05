@@ -26,6 +26,10 @@ for option in autocd globstar; do
 	shopt -s "$option" 2> /dev/null
 done
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+	. $(brew --prefix)/etc/bash_completion
+fi
+
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
@@ -39,4 +43,12 @@ complete -W "NSGlobalDomain" defaults
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
+#Comment out if you do not use 'Sublime Text"'
 export EDITOR='subl -w'
+
+#UN-Comment after 'homebrew' is installed
+#source /usr/local/Library/Contributions/brew_bash_completion.sh 
+# export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+
+#UN-Comment after RVM is installed
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM functi$ on
