@@ -144,3 +144,4 @@ function unquarantine() {
 		xattr -r -d "$attribute" "$@"
 	done
 }
+
