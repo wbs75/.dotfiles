@@ -13,9 +13,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName Macintosh HD
-sudo scutil --set HostName Macintosh HD
-sudo scutil --set LocalHostName Macintosh HD
+# sudo scutil --set ComputerName MacPro
+# sudo scutil --set HostName server.macpro
+# sudo scutil --set LocalHostName MacPro.local
 
 cd $HOME
 
