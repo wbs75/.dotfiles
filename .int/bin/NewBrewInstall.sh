@@ -5,7 +5,7 @@ git config --global user.email wbs75@me.com
  
 brew tap homebrew/dupes
  
-brew install libksba pkg-config libyaml libxml2 libxslt libvirt sqlite autoconf automake apple-gcc42 readline imagemagick rbenv python python3 wget
+brew install libksba pkg-config libyaml libxml2 libxslt libvirt build-essential sqlite autoconf automake apple-gcc42 readline imagemagick rbenv python python3 wget
 
 brew tap timsutton/formulae
  
