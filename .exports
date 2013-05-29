@@ -3,7 +3,6 @@ if [ -f /usr/local/bin/subl ]; then
     export EDITOR='subl -w'
 elif [ -f /usr/local/bin/mate ]; then
     export EDITOR='mate'
-    export GIT_EDITOR='mate -wl1'
 fi
 
 # Larger bash history (allow 32³ entries; default is 500)
@@ -28,4 +27,3 @@ export PGHOST=/tmp
 
 # no ._ files in archives please
 export COPYFILE_DISABLE=true
-
