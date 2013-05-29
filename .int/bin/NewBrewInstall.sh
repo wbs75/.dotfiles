@@ -25,7 +25,7 @@ source ~/.bash_profile
  
 brew tap homebrew/dupes
  
-brew install libksba pkg-config libyaml libxml2 libxslt libvirt build-essential sqlite autoconf automake apple-gcc42 readline imagemagick rbenv python python3 wget
+brew install libksba pkg-config libyaml libxml2 libxslt libvirt xar sqlite autoconf automake apple-gcc42 readline imagemagick rbenv python python3 wget
 
 echo 'export PATH="/usr/local/share/python:/usr/local/share/python3:$PATH"' >> ~/.bash_profile
 
