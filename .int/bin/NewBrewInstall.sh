@@ -47,6 +47,8 @@ rbenv rehash
 
 rbenv install 1.9.3-p385
 
+rbenv install 1.9.3-p0
+
 rbenv shell 1.9.3-p0
 
 rbenv global 1.9.3-p0
