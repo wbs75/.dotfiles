@@ -126,6 +126,13 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
 
+# Vagrant
+alias vdestroy="vagrant destroy -f"
+alias vhalt="vagrant halt --f"
+alias vreload="vagrant reload --no-provision"
+alias vssh="vagrant ssh"
+alias vup="vagrant up --provider=vmware_fusion"
+
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
