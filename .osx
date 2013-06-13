@@ -34,13 +34,13 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 
 
 # Enable2Ddock
-defaults write com.apple.dock no-glass -bool  && killall Dock
+defaults write com.apple.dock no-glass -bool  true && killall Dock
 
 # Where on the side of the screen the Dock resides.
-defaults write com.apple.dock pinning -string "middle" && killall Dock
+defaults write com.apple.dock pinning -string "middle" true && killall Dock
 
 # Defines the animation which is used to show windows being minimized into the Dock.
-defaults write com.apple.dock mineffect -string "suck" && killall Dock
+defaults write com.apple.dock mineffect -string "suck" true && killall Dock
 
 # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true && killall Dock
@@ -88,7 +88,7 @@ defaults write com.apple.finder RestoreWindowState -bool true && killall Finder
 defaults write NSGlobalDomain NSScrollViewRubberbanding -bool true && killall Finder
 
 # The location and style of scrollbar arrows. Applications often need to be relaunched to see the change.
-defaults write NSGlobalDomain AppleScrollBarVariant -string "DoubleBoth" && killall Finder
+defaults write NSGlobalDomain AppleScrollBarVariant -string "DoubleBoth" true && killall Finder
 
 # Smooth Scroll
 defaults write NSGlobalDomain NSScrollAnimationEnabled -bool true && killall Finder
@@ -97,7 +97,7 @@ defaults write NSGlobalDomain NSScrollAnimationEnabled -bool true && killall Fin
 defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder
 
 # Prefered View Style
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv" && killall Finder
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv" true && killall Finder
 
 # Adds the ability to highlight and select text from QuickLook previews.
 defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder
@@ -194,7 +194,7 @@ defaults write com.apple.preview NSAppleScriptEnabled -bool true
 defaults write NSGlobalDomain CheckSpellingWhileTyping -bool true
 
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+defaults write NSGlobalDomain AppleFontSmoothing -int 2 true
 
 # Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
@@ -215,7 +215,7 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+defaults write com.apple.screensaver askForPasswordDelay -int 0 
 
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
@@ -470,7 +470,7 @@ defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://
 ###############################################################################
 
 for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
-    "Mail" "Safari" "SizeUp" "SystemUIServer" "Terminal" "Transmission" \
+    "Mail" "Safari" "SizeUp" "SystemUIServer" \
     "Twitter" "iCal" "iTunes"; do
     killall "$app" > /dev/null 2>&1
 done
