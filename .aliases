@@ -70,7 +70,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias undopush="git push -f origin HEAD^:master"
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; gem update --system; rbenv rehash; bundle update system; rbenv rehash'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; gem update --system; npm update npm -g; npm update -g'
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
