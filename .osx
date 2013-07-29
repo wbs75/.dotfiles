@@ -19,19 +19,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 sudo spctl --master-disable
 
 ###############################################################################
-# Set computer name (as done via System Preferences → Sharing)
-###############################################################################
-
-sudo scutil --set ComputerName "MacPro"
-sudo scutil --set HostName "server.macpro"
-sudo scutil --set LocalHostName "MacPro"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "server.macpro"
-
-
-###############################################################################
 # Dock & hot corners                                                          #
 ###############################################################################
-
 
 # Enable2Ddock
 defaults write com.apple.dock no-glass -bool  true && killall Dock
