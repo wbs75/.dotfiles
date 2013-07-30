@@ -52,12 +52,4 @@ export EDITOR='subl -w'
 
 # export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
-# export PATH="/usr/local/share/python:/usr/local/share/python3:$PATH"
 
-# export PATH="/usr/local/opt/ruby/bin:$PATH" 
-
-# export PATH="$HOME/.rbenv/bin:$PATH"
-
-# export PATH="/usr/local/mysql/bin:$PATH"
-
-# eval "$(rbenv init -)"

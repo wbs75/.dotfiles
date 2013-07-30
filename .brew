@@ -1,0 +1,72 @@
+#!/bin/bash
+
+sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+sudo ln -s /opt/X11 /usr/X11
+sudo chown -R `whoami` /usr/local
+#
+ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"  
+#
+brew install bash-completion >/dev/null
+echo "Installing bash-completion..."
+brew install git >/dev/null
+echo "Installing git..."
+#
+cd /usr/local 
+find Cellar  
+ls -l bin    
+git config --global user.name wbs75
+git config --global user.email wbs75@me.com
+echo 'export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_profile  
+echo 'source `brew --prefix`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile 
+source ~/.bash_profile 
+#
+brew tap homebrew/dupes >/dev/null
+echo "Tapped homebrew dupes..."
+#
+brew install libksba >/dev/null
+echo "Installing libksba..."
+brew install pkg-config >/dev/null
+echo "Installing pkg-config..."
+brew install libyaml >/dev/null
+echo "Installing libyaml..."
+brew install libxslt >/dev/null
+echo "Installing libxslt ..."
+brew install libvirt >/dev/null
+echo "Installing libvirt..."
+brew install xar >/dev/null
+echo "Installing xar..."
+brew install sqlite >/dev/null
+echo "Installing sqlite..."
+brew install autoconf >/dev/null
+echo "Installing autoconf..."
+brew install automake >/dev/null
+echo "Installing automake..."
+brew install apple-gcc42 >/dev/null
+echo "Installing gcc42..."
+brew install python >/dev/null
+echo "Installing python..."
+brew install python3 >/dev/null
+echo "Installing python3..."
+brew install wget >/dev/null
+echo "Installing wget..."
+brew install gptfdisk >/dev/null
+echo "Installing gptfdisk..."
+brew install markdown >/dev/null
+echo "Installing markdown..."
+brew install multimarkdown >/dev/null
+echo "Installing multimarkdown..."
+brew install imagemagick >/dev/null
+echo "Installing imagemagick..."
+#
+brew tap timsutton/formulae >/dev/null
+echo "Tapped  timsutton formulae..."
+# 
+brew install brew-pkg
+echo "Installing brew-pkg"
+#
+source ~/.bash_profile 
+brew cleanup
+brew doctor
+#
+echo "Finsh Installing brew packages... "
+
