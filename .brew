@@ -5,6 +5,9 @@ sudo ln -s /opt/X11 /usr/X11
 sudo chown -R `whoami` /usr/local
 #
 ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"  
+#  Agree to Xcode license
+xcodebuild -license >/dev/null
+echo "Agreed to Xcode license"
 #
 brew install bash-completion >/dev/null
 echo "Installing bash-completion..."
