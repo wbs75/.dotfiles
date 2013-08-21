@@ -1,10 +1,10 @@
 #!/bin/bash
 
 sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
-sudo ln -s /opt/X11 /usr/X11
+sudo mkdir /usr/local
 sudo chown -R `whoami` /usr/local
 #
-ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"  
+ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 #  Agree to Xcode license
 xcodebuild -license >/dev/null
 echo "Agreed to Xcode license"
@@ -14,14 +14,18 @@ echo "Installing bash-completion..."
 brew install git >/dev/null
 echo "Installing git..."
 #
-cd /usr/local 
-find Cellar  
-ls -l bin    
+cd /usr/local
+find Cellar
+ls -l bin
 git config --global user.name wbs75
 git config --global user.email wbs75@me.com
-echo 'export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_profile  
-echo 'source `brew --prefix`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile 
-source ~/.bash_profile 
+echo 'export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_profile
+#
+#
+echo 'source `brew --prefix`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile
+#
+#
+source ~/.bash_profile
 #
 brew tap homebrew/dupes >/dev/null
 echo "Tapped homebrew dupes..."
@@ -50,12 +54,12 @@ brew install python >/dev/null
 echo "Installing python..."
 brew install python3 >/dev/null
 echo "Installing python3..."
+brew install npm >/dev/null
+echo "Installing npm..."
 brew install wget >/dev/null
 echo "Installing wget..."
 brew install gptfdisk >/dev/null
 echo "Installing gptfdisk..."
-brew install markdown >/dev/null
-echo "Installing markdown..."
 brew install multimarkdown >/dev/null
 echo "Installing multimarkdown..."
 brew install imagemagick >/dev/null
@@ -63,11 +67,11 @@ echo "Installing imagemagick..."
 #
 brew tap timsutton/formulae >/dev/null
 echo "Tapped  timsutton formulae..."
-# 
-brew install brew-pkg
+#
+brew install brew-pkg >/dev/null
 echo "Installing brew-pkg"
 #
-source ~/.bash_profile 
+source ~/.bash_profile
 brew cleanup
 brew doctor
 #

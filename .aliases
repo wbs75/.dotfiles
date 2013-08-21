@@ -24,13 +24,12 @@ alias la="ls -la ${colorflag}"
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
 
-
 # navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" 		# `cd` might be faster 
+alias ~="cd ~" 		# `cd` might be faster
 alias -- -="cd -"
 
 # Shortcuts
@@ -51,6 +50,8 @@ alias sparse50="hdiutil create -type SPARSE -size 50g -fs HFS+ growableTo50g"
 alias sparse100="hdiutil create -type SPARSE -size 100g -fs HFS+ growableTo100g"
 alias sparse150="hdiutil create -type SPARSE -size 150g -fs HFS+ growableTo150g"
 alias sparse300="hdiutil create -type SPARSE -size 300g -fs HFS+ growableTo300g"
+alias sparse500="hdiutil create -type SPARSE -size 500g -fs HFS+ growableTo500g"
+alias sparse1000="hdiutil create -type SPARSE -size 1000g -fs HFS+ growableTo1000g"
 
 alias g="git"
 alias h="history"
@@ -60,7 +61,7 @@ alias v="vim"
 
 alias o="open"
 alias oo="open ."
-
+alias rmvs="source ~/.rvm/scripts/rvm"
 alias sbpkg="cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages"
 alias tfinder="/Applications/TotalFinder.app/Contents/MacOS/applet"
 alias bompkg="cd /private/var/db/receipts && lsbom -p MUGsf "
@@ -96,7 +97,7 @@ alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && kil
 
 # enable or disable Bonjour
 alias dbon="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist"
-alias ebon="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist" 
+alias ebon="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist"
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
@@ -104,7 +105,7 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias whois="whois -h whois-servers.net"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
+alias server="open http://localhost:8000/ && python -m SimpleHTTPServer 8000"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do alias "$method"="lwp-request -m '$method'"; done
