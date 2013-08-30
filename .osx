@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# ~/.osx — https://github.com/wbs75/dotfiles/edit/master/.osx
-
 # Ask for the administrator password upfront
 sudo -v
 
