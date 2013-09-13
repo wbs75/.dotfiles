@@ -16,14 +16,15 @@ echo "Installing git..."
 #
 cd /usr/local
 find Cellar
-ls -l bin
+ls -l bin >/dev/null
 git config --global user.name wbs75
 git config --global user.email wbs75@me.com
-echo 'export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_profile
 #
+echo -e '\nexport PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_profile
+echo
 #
-echo 'source `brew --prefix`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile
-#
+echo -e '\nsource `brew --prefix`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile
+echo
 #
 source ~/.bash_profile
 #
@@ -71,9 +72,14 @@ echo "Tapped  timsutton formulae..."
 brew install brew-pkg >/dev/null
 echo "Installing brew-pkg"
 #
+brew tap homebrew/binary >/dev/null
+brew install packer >/dev/null
+echo "Installing packer"
+#
 source ~/.bash_profile
 brew cleanup
 brew doctor
 #
-echo "Finsh Installing brew packages... "
+echo -e "\nFinshed Installing brew packages... "
+echo
 
