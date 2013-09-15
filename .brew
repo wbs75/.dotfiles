@@ -31,20 +31,13 @@ source ~/.bash_profile
 brew tap homebrew/dupes >/dev/null
 echo "Tapped homebrew dupes..."
 #
-brew install libksba >/dev/null
-echo "Installing libksba..."
+
 brew install pkg-config >/dev/null
 echo "Installing pkg-config..."
 brew install libyaml >/dev/null
 echo "Installing libyaml..."
-brew install libxslt >/dev/null
-echo "Installing libxslt ..."
-brew install libvirt >/dev/null
-echo "Installing libvirt..."
 brew install xar >/dev/null
 echo "Installing xar..."
-brew install sqlite >/dev/null
-echo "Installing sqlite..."
 brew install autoconf >/dev/null
 echo "Installing autoconf..."
 brew install automake >/dev/null
@@ -55,8 +48,6 @@ brew install python >/dev/null
 echo "Installing python..."
 brew install python3 >/dev/null
 echo "Installing python3..."
-brew install npm >/dev/null
-echo "Installing npm..."
 brew install wget >/dev/null
 echo "Installing wget..."
 brew install gptfdisk >/dev/null
@@ -77,9 +68,20 @@ brew install packer >/dev/null
 echo "Installing packer"
 #
 source ~/.bash_profile
+#
+# Install RVM
+\curl -L https://get.rvm.io | bash -s stable --ruby
+#
+source ~/.rvm/scripts/rvm
+#
+gem install bundler
+gem install rubygems-update
+#
+gem update --system
+#
 brew cleanup
 brew doctor
 #
 echo -e "\nFinshed Installing brew packages... "
 echo
-
+#
