@@ -6,7 +6,7 @@ sudo chown -R `whoami` /usr/local
 #
 ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 #  Agree to Xcode license
-xcodebuild -license >/dev/null
+sudo /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept
 echo "Agreed to Xcode license"
 #
 brew install bash-completion >/dev/null
@@ -34,8 +34,6 @@ echo "Tapped homebrew dupes..."
 
 brew install pkg-config >/dev/null
 echo "Installing pkg-config..."
-brew install libyaml >/dev/null
-echo "Installing libyaml..."
 brew install xar >/dev/null
 echo "Installing xar..."
 brew install autoconf >/dev/null
@@ -44,16 +42,8 @@ brew install automake >/dev/null
 echo "Installing automake..."
 brew install apple-gcc42 >/dev/null
 echo "Installing gcc42..."
-brew install python >/dev/null
-echo "Installing python..."
-brew install python3 >/dev/null
-echo "Installing python3..."
 brew install wget >/dev/null
 echo "Installing wget..."
-brew install gptfdisk >/dev/null
-echo "Installing gptfdisk..."
-brew install multimarkdown >/dev/null
-echo "Installing multimarkdown..."
 brew install imagemagick >/dev/null
 echo "Installing imagemagick..."
 #
