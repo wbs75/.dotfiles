@@ -72,6 +72,5 @@ gem update --system
 brew cleanup
 brew doctor
 #
-echo -e "\nFinshed Installing brew packages... "
-echo
+echo "Finshed Installing brew packages... "
 #
