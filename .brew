@@ -17,13 +17,10 @@ git config --global user.name wbs75
 git config --global user.email wbs75@me.com
 #
 echo -e '\nexport PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_profile
-echo
 #
 echo -e '\nsource `brew --prefix`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile
-echo
 #
 echo -e '\nsource `brew --repository`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile
-echo
 #
 source ~/.bash_profile
 #
