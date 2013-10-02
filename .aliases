@@ -86,6 +86,7 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 alias rootpref="sudo -s ls -@ailOR /private/var/root/Library/Preferences"
 alias skext="sudo kextcache -system-prelinked-kernel && sudo kextcache -system-caches"
 alias repair="diskutil repairPermissions /"
+alias kconf="sudo killall configd"
 alias rb="sudo shutdown -r +1"
 
 alias spotoff="sudo mdutil -a -i off"
