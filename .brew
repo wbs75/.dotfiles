@@ -1,8 +1,4 @@
 #!/bin/bash
-
-sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
-sudo mkdir /usr/local
-sudo chown -R `whoami` /usr/local
 #
 ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 #  Agree to Xcode license
@@ -24,6 +20,9 @@ echo -e '\nexport PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"' >> ~/.bash_
 echo
 #
 echo -e '\nsource `brew --prefix`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile
+echo
+#
+echo -e '\nsource `brew --repository`/Library/Contributions/brew_bash_completion.sh' >> ~/.bash_profile
 echo
 #
 source ~/.bash_profile
