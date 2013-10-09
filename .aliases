@@ -146,6 +146,10 @@ alias vreload="vagrant reload --no-provision"
 alias vssh="vagrant ssh"
 alias vup="vagrant up --provider=vmware_fusion"
 
+# pkgutil
+alias dpkg="sudo hdiutil create -srcfolder "
+alias bompkg="cd /private/var/db/receipts && lsbom -p MUGsf "
+
 # Brew Cask
 alias binstall="brew cask install "
 alias bsearch="brew cask search"
