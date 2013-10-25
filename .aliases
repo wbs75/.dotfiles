@@ -69,7 +69,7 @@ alias o="open"
 alias oo="open ."
 
 alias sbpkg="cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages"
-alias tfinder="/Applications/TotalFinder.app/Contents/MacOS/applet"
+alias tfinder="/Applications/TotalFinder.app/Contents/MacOS/TotalFinder "
 alias bompkg="cd /private/var/db/receipts && lsbom -p MUGsf "
 alias fs="stat -f \"%z bytes\""
 alias pcmds="systemsetup -printCommands"
@@ -109,7 +109,7 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # enable or disable Bonjour
 alias dbon="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist"
-alias ebon="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist" 
+alias ebon="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist"
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
