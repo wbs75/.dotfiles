@@ -155,6 +155,7 @@ alias binstall="brew cask install "
 alias bsearch="brew cask search"
 
 # munki
+alias munki_update="sudo /usr/local/munki/managedsoftwareupdate"
 alias munki_config="/usr/local/munki/munkiimport --configure"
 alias munki_defaults="defaults read /Library/Preferences/ManagedInstalls"
 alias munki_SoftRepoURL="sudo defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL"
