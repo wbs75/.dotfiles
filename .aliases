@@ -154,6 +154,14 @@ alias bompkg="cd /private/var/db/receipts && lsbom -p MUGsf "
 alias binstall="brew cask install "
 alias bsearch="brew cask search"
 
+# munki
+alias munki_config="/usr/local/munki/munkiimport --configure"
+alias munki_defaults="defaults read /Library/Preferences/ManagedInstalls"
+alias munki_SoftRepoURL="sudo defaults write /Library/Preferences/ManagedInstalls SoftwareRepoURL"
+alias munki_ClientIdentifier="sudo defaults write /Library/Preferences/ManagedInstalls ClientIdentifier"
+alias munki_load="sudo launchctl load /Library/LaunchDaemons/com.googlecode.munki.munkiwebadmin.plist"
+alias munki_unload="sudo launchctl unload /Library/LaunchDaemons/com.googlecode.munki.munkiwebadmin.plist"
+
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 7'"
