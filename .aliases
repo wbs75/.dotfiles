@@ -17,6 +17,8 @@ alias cdb="cd /usr/local/bin "
 alias g="git"
 alias h="history"
 alias j="jobs"
+alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias v="vim"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -53,12 +55,6 @@ alias sparse150="hdiutil create -type SPARSE -size 150g -fs HFS+ growableTo150g"
 alias sparse300="hdiutil create -type SPARSE -size 300g -fs HFS+ growableTo300g"
 alias sparse500="hdiutil create -type SPARSE -size 500g -fs HFS+ growableTo500g"
 alias sparse1000="hdiutil create -type SPARSE -size 1000g -fs HFS+ growableTo1000g"
-
-alias g="git"
-alias h="history"
-alias j="jobs"
-alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias v="vim"
 
 alias o="open"
 alias oo="open ."
