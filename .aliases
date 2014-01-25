@@ -11,6 +11,9 @@ alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
+alias cds="cd ~/Sites/httpd"
+alias cdl="cd /usr/local"
+alias cdb="cd /usr/local/bin "
 alias g="git"
 alias h="history"
 alias j="jobs"
@@ -38,14 +41,6 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/Projects"
-alias cds="cd ~/Sites/httpd"
-alias cdl="cd /usr/local"
-alias cdb="cd /usr/local/bin "
 
 # Imaging
 alias sparse1="hdiutil create -type SPARSE -size 1g -fs HFS+ growableTo1g"
@@ -62,7 +57,7 @@ alias sparse1000="hdiutil create -type SPARSE -size 1000g -fs HFS+ growableTo100
 alias g="git"
 alias h="history"
 alias j="jobs"
-alias s="subl ."
+alias s="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias v="vim"
 
 alias o="open"
