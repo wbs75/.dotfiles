@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 #  Agree to Xcode license
 sudo /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept
 echo "Agreed to Xcode license"
