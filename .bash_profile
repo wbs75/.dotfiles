@@ -1,7 +1,7 @@
 # Load ~/.bash_prompt, ~/.exports, ~/.aliases, ~/.functions and ~/.extra
 # ~/.extra can be used for settings you don’t want to commit
 # Add `~/bin` to the `$PATH`
-source /opt/boxen/env.sh
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
     [ -r "$file" ] && source "$file"
