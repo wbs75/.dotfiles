@@ -1,15 +1,17 @@
 # Load ~/.bash_prompt, ~/.exports, ~/.aliases, ~/.functions and ~/.extra
 # ~/.extra can be used for settings you don’t want to commit
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
+source /opt/boxen/env.sh
 
 for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && source "$file"
+    [ -r "$file" ] && source "$file"
 done
 
-if [ -f /usr/local/etc/bash_completion ]; then
-  . /usr/local/etc/bash_completion
+if [ -f /opt/boxen/homebrew/etc/bash_completion ]; then
+  . /opt/boxen/homebrew/etc/bash_completion
 fi
+
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
