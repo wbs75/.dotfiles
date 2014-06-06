@@ -130,6 +130,9 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
     alias "$method"="lwp-request -m '$method'"
 done
 
+# Boxen
+alias bau="boxen_auto-update"
+
 # Vagrant
 alias vdestroy="vagrant destroy -f"
 alias vhalt="vagrant halt --f"
