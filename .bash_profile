@@ -7,8 +7,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
     [ -r "$file" ] && source "$file"
 done
 
-if [ -f /opt/boxen/homebrew/etc/bash_completion ]; then
-  . /opt/boxen/homebrew/etc/bash_completion
+if [ -f /usr/local/etc/bash_completion ]; then
+  . /usr/local/etc/bash_completion
 fi
 
 [ -f /etc/bash_completion ] && source /etc/bash_completion
@@ -25,6 +25,8 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 
 export EDITOR='subl -w'
+
+
 
 
 
